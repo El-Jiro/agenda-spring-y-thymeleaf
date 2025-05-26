@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragmentos/cabecera::cabecera-seccion(titulo='Agenda de Contactos - Agregar contacto')}">
+<head th:replace="~{fragmentos/cabecera::cabecera-seccion(titulo='Agenda de Contactos - Agregar')}">
 </head>
 <body>
 <!--Barra de navegación-->
   <div th:replace="~{fragmentos/navegación::navegacion-seccion}"></div>
-  <h2>Agregar Contacto</h2>
+  <div class="row mb-1 ms-3 mt-5">
+    <h2>Agregar Contacto</h2>
+  </div>
+<div class="row mb-4 ms-3 mt-4">
+  <form method="post" >
+    <div class="row mb-4">
+      <div class="col-md-2">
+        <label for="nombre" class="form-label">Nombre completo: </label>
+        <input type="text" required class="form-control" name="nombre"
+               id="nombre" placeholder="Introduzca su nombre completo">
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-1">
+        <label for="telefono" class="form-label">Telefono: </label>
+        <input type="tel" required class="form-control" name="telefono" id="telefono" placeholder="5555555555">
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-2">
+        <label for="correo" class="form-label">Correo: </label>
+        <input type="email" required class="form-control" name="correo" id="correo" placeholder="alguien@example.com">
+      </div>
+    </div>
 
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary me-3">
+        <i class="fa-solid fa-floppy-disk"></i>
+        &nbsp;Registrar
+      </button>
+      <a class="btn btn-danger" href="${urlInicio}">
+        <i class="fa-solid fa-xmark"></i>
+        &nbsp;Regresar
+      </a>
+    </div>
+  </form>
+</div>
 <!--Pie de página-->
 <div th:replace="~{fragmentos/pie-pagina::pie-pagina-seccion}"></div>
 </body>
