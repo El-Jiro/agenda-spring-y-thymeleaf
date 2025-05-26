@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos/cabecera::cabecera-seccion(titulo='Agenda de Contactos - Agregar contacto')}">
 </head>
 <body>
+<!--Barra de navegación-->
+  <div th:replace="~{fragmentos/navegación::navegacion-seccion}"></div>
   <h2>Agregar Contacto</h2>
+
+<!--Pie de página-->
+<div th:replace="~{fragmentos/pie-pagina::pie-pagina-seccion}"></div>
 </body>
 </html>
