@@ -48,7 +48,7 @@
                         de ruta id entre llaves, posteriormente abrimos paréntesis para esepecificar el
                         valor de dicho id, y finalemnte accedemos al atributo idContacto con expression language-->
                         <a class="btn btn-warning btn-sm" style="font-weight:500"
-                           th:href="@{/editar/id(id=${contacto.idContacto})}">
+                           th:href="@{/editar/{id}(id=${contacto.idContacto})}">
                             <i class="fa-solid fa-pen-to-square"></i> Editar
                         </a>
                     </td>

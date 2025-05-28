@@ -15,8 +15,8 @@ import java.text.MessageFormat;
 @Controller
 public class AgregarControlador {
 
-    private Logger logger = LoggerFactory.getLogger(AgregarControlador.class);
-    private String nl = System.lineSeparator();
+    private final Logger logger = LoggerFactory.getLogger(AgregarControlador.class);
+    private final String nl = System.lineSeparator();
 
     //Inyectamos una instancia de ContactoServicio
     @Autowired
@@ -37,7 +37,7 @@ public class AgregarControlador {
     public String agregar(@ModelAttribute("contactoForm")Contacto contacto){
         //Imprimimos un salto de línea y el objeto contacto
         logger.info(nl);
-        logger.info(MessageFormat.format("Contacto a agregar: {0}", contacto));
+        logger.info("Contacto a agregar: {}", contacto.toString());
         //guardamos el objeto en la base de datos
         contactoServicio.guardarContacto(contacto);
         //Redirigimos al path "/" para que se recargue la página de inicio y se actualice automáticamente la tabla
