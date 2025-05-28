@@ -9,24 +9,30 @@
     <h2>Editar Contacto</h2>
   </div>
 <div class="row mb-4 ms-3 mt-4">
-  <form action="/editar" method="post" modelAttribute="contactoForm">
+  <!--Ya no necesitamos el atributo modelAttribute, en su lugar utilizamos th:object para acceder
+  al objeto Contacto que recibimos desde el controlador con expression language-->
+  <form action="/editar" th:object="${contacto}" method="post" modelAttribute="contactoForm">
+    <!--Añadimos un campo oculto para el id-->
+    <input type="hidden" th:field="*{idContacto}">
     <div class="row mb-4">
       <div class="col-md-2">
         <label for="nombre" class="form-label">Nombre completo: </label>
+        <!--Utilizamos th field y la sintaxis *{propiedad} para acceder a las propiedades del objeto
+        contacto y asignarlas como valor default en cada campo-->
         <input type="text" required class="form-control" name="nombre"
-               id="nombre" placeholder="Introduzca su nombre completo">
+               id="nombre" th:field="*{nombre}">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-1">
         <label for="telefono" class="form-label">Telefono: </label>
-        <input type="tel" required class="form-control" name="telefono" id="telefono" placeholder="5555555555">
+        <input type="tel" required class="form-control" name="telefono" id="telefono" th:field="*{telefono}">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-2">
         <label for="correo" class="form-label">Correo: </label>
-        <input type="email" class="form-control" name="correo" id="correo" placeholder="alguien@example.com">
+        <input type="email" class="form-control" name="correo" id="correo" th:field="*{correo}">
       </div>
     </div>
 
