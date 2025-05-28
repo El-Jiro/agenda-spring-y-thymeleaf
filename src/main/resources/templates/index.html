@@ -27,6 +27,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Télefono</th>
                     <th scope="col">Correo</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,8 +39,19 @@
                     y accedemos a las propiedades del objeto contacto con expression language-->
                     <td th:text="${contacto.idContacto}" scope="row"></td>
                     <td th:text="${contacto.nombre}"></td>
-                    <td th:text="${contacto.telefono}">55555555</td>
+                    <td th:text="${contacto.telefono}"></td>
                     <td th:text="${contacto.correo}"></td>
+                    <!--Agregamos un link para el formulario de editar estilizado como botón-->
+                    <td class="text-center">
+                        <!--Utilizamos las urls dinámicas de thymeleaf con @{} usando el atributo th:href,
+                        la primera parte de la url será la ruta /editar, después le pasamos la variable
+                        de ruta id entre llaves, posteriormente abrimos paréntesis para esepecificar el
+                        valor de dicho id, y finalemnte accedemos al atributo idContacto con expression language-->
+                        <a class="btn btn-warning btn-sm" style="font-weight:500"
+                           th:href="@{/editar/id(id=${contacto.idContacto})}">
+                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>
