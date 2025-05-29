@@ -53,7 +53,8 @@
                         </a>
                         <!--Repetimos el proceso para el botón de eliminar-->
                         <a class="btn btn-danger btn-sm" style="font-weight:500"
-                           th:href="@{/eliminar/{id}(id=${contacto.idContacto})}">
+                           th:href="@{/eliminar/{id}(id=${contacto.idContacto})}"
+                           onclick="return confirmarEliminacion()">
                             <i class="fa-solid fa-trash"></i> Eliminar
                         </a>
                     </td>
@@ -63,5 +64,10 @@
     </div>
     <!--Esto se reemplazará por el fragmento al renderizar la vista-->
     <div th:replace="~{fragmentos/pie-pagina::pie-pagina-seccion}"></div>
+    <script>
+        function confirmarEliminacion(){
+            return confirm("¿Está seguro de que desea eliminar el contacto?\nEsta acción es irreversible")
+        }
+    </script>
 </body>
 </html>
