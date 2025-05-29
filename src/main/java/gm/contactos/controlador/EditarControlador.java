@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class EditarControlador {
@@ -34,6 +36,22 @@ public class EditarControlador {
 
         //Regresamos la vista de editar
         return "editar";
+    }
+
+    //Creamos un método para procesar el formulario
+    @PostMapping("/editar")
+    //Añadimos la anotación ModelAttribute para que se cree automáticamente el objeto contacto con lso datos del formulario
+    public String editar(@ModelAttribute("contacto") Contacto contacto){
+
+        //Imprimimos el contacto en consola
+        logger.info(nl);
+        logger.info("Contacto a editar: {}", contacto.toString());
+
+        //Lo guardamos en la base de datos
+        contactoServicio.guardarContacto(contacto);
+
+        //redirigimos hacia la url de inicio
+        return "redirect:/";
     }
 
 

@@ -11,7 +11,7 @@
 <div class="row mb-4 ms-3 mt-4">
   <!--Ya no necesitamos el atributo modelAttribute, en su lugar utilizamos th:object para acceder
   al objeto Contacto que recibimos desde el controlador con expression language-->
-  <form action="/editar" th:object="${contacto}" method="post" modelAttribute="contactoForm">
+  <form action="/editar" th:object="${contacto}" method="post">
     <!--Añadimos un campo oculto para el id-->
     <input type="hidden" th:field="*{idContacto}">
     <div class="row mb-4">
