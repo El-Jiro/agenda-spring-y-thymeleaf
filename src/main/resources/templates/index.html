@@ -47,9 +47,14 @@
                         la primera parte de la url será la ruta /editar, después le pasamos la variable
                         de ruta id entre llaves, posteriormente abrimos paréntesis para esepecificar el
                         valor de dicho id, y finalemnte accedemos al atributo idContacto con expression language-->
-                        <a class="btn btn-warning btn-sm" style="font-weight:500"
+                        <a class="btn btn-warning btn-sm me-3" style="font-weight:500"
                            th:href="@{/editar/{id}(id=${contacto.idContacto})}">
                             <i class="fa-solid fa-pen-to-square"></i> Editar
+                        </a>
+                        <!--Repetimos el proceso para el botón de eliminar-->
+                        <a class="btn btn-danger btn-sm" style="font-weight:500"
+                           th:href="@{/eliminar/{id}(id=${contacto.idContacto})}">
+                            <i class="fa-solid fa-trash"></i> Eliminar
                         </a>
                     </td>
                 </tr>
